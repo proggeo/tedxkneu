@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .nav {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .nav-item {
+        position: absolute;
+        pointer-events: all;
+        list-style: none;
+    }
+
+    .nav-item:nth-of-type(4n+1),
+    .nav-item:nth-of-type(4n+2) {
+        width: 50%;
+        height: 3rem;
+    }
+
+    .nav-item:nth-of-type(4n+3),
+    .nav-item:nth-of-type(4n) {
+        width: 5rem;
+        height: 50%;
+    }
+
+    .nav-item:nth-of-type(1),
+    .nav-item:nth-of-type(8) {
+        top: 0;
+        left: 0;
+    }
+
+    .nav-item:nth-of-type(2),
+    .nav-item:nth-of-type(3) {
+        top: 0;
+        right: 0;
+    }
+
+    .nav-item:nth-of-type(4),
+    .nav-item:nth-of-type(5) {
+        right: 0;
+        bottom: 0;
+    }
+
+    .nav-item:nth-of-type(6),
+    .nav-item:nth-of-type(7) {
+        bottom: 0;
+        left: 0;
+    }
+    
+    .nav-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: transparent url('nav.svg') no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before,
+    .nav-item:nth-of-type(4) > .nav-link::before,
+    .nav-item:nth-of-type(7) > .nav-link::before,
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        background-image: url('nav-vertical.svg');
+    }
+
+    .nav-link:hover::before {
+        background-image: url('nav-hover.svg');
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link:hover::before,
+    .nav-item:nth-of-type(4) > .nav-link:hover::before,
+    .nav-item:nth-of-type(7) > .nav-link:hover::before,
+    .nav-item:nth-of-type(8) > .nav-link:hover::before {
+        background-image: url('nav-vertical-hover.svg');
+    }
+
+    .nav-item:nth-of-type(1) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(2) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(4) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(5) > .nav-link::before {}
+
+    .nav-item:nth-of-type(6) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(7) > .nav-link::before {}
+
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    #container{
+        position: fixed;
+        padding: 80px;
+        overflow-y: hidden;
+        height: 60%;
+    }
+</style>
+
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">TEDX</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+</ul>
+
+<div id="container">
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, cum debitis, earum eum inventore itaque
+    laudantium, odit pariatur quas qui quibusdam vel voluptas voluptatem voluptates voluptatum? Delectus deleniti quis
+    temporibus.</p>
+<p>Alias aspernatur consectetur debitis dolore dolorem, eveniet fugit ipsa ipsam, minima omnis perferendis perspiciatis
+    placeat quidem quos repellendus tenetur ullam. Assumenda corporis explicabo facilis, labore magni officia qui quidem
+    vero.</p>
+<p>Assumenda blanditiis eaque neque, non obcaecati qui repellat saepe? A amet animi, aspernatur beatae dicta error et
+    fugiat magnam maiores nam, nemo nihil quam quia repellendus sed sunt unde voluptas?</p>
+<p>Aut et excepturi, explicabo hic itaque laboriosam laborum magnam magni nostrum officia officiis perferendis placeat
+    provident quasi qui repudiandae similique, tempora ut. Aperiam cumque doloribus et ipsa optio? Ipsam, ipsum!</p>
+<p>Accusamus aliquid cupiditate dolorum et fuga hic minima praesentium sequi velit veniam. At aut dolor dolorum eligendi
+    exercitationem illo incidunt nesciunt placeat quidem quis, reprehenderit repudiandae saepe similique, totam,
+    voluptates!</p>
+<p>A ad adipisci alias corporis cum cupiditate delectus distinctio dolores explicabo harum id illum ipsa ipsum, iure
+    labore, magnam magni nihil nulla omnis praesentium quaerat quia quibusdam rem sequi voluptatibus.</p>
+<p>Corporis doloribus fugiat, illum neque porro quo sequi sit voluptatem! Atque cupiditate distinctio dolorum eius
+    eligendi expedita facere, hic incidunt ipsam laudantium minima minus mollitia neque, non pariatur quibusdam
+    ullam.</p>
+<p>Beatae commodi dolores eligendi eveniet facere fugit illo ipsa ipsam mollitia odio officiis, sint sit soluta vel,
+    velit voluptate, voluptatum. Ad blanditiis corporis deleniti dignissimos fugiat id magni officia placeat.</p>
+<p>Animi expedita impedit necessitatibus nostrum officia quam voluptates. Ab alias beatae commodi cumque distinctio enim
+    est, et in ipsa labore magnam mollitia nam nemo neque officia similique unde voluptas voluptatum!</p>
+<p>Consectetur esse eum mollitia pariatur qui quibusdam ratione, voluptate. A, ad amet deleniti eveniet fugiat fugit
+    impedit iusto maiores nulla obcaecati perferendis placeat quae quasi qui quo repellat sequi temporibus!</p>
+</div>
+</body>
+</html>
