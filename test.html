@@ -91,7 +91,7 @@
         display: block;
         width: 100%;
         height: 100%;
-        background: transparent url('White_horizontal.png') no-repeat;
+        background: transparent url('White_horizontal_3.png') no-repeat;
         background-size: 100% 100%;
     }
 
@@ -99,7 +99,7 @@
     .nav-item:nth-of-type(4) > .nav-link::before,
     .nav-item:nth-of-type(7) > .nav-link::before,
     .nav-item:nth-of-type(8) > .nav-link::before {
-        background-image: url('White_vertical_1.png');
+        background-image: url('White_vertical_2.png');
     }
 
     .nav-link:hover {
@@ -107,14 +107,14 @@
     }
 
     .nav-link:hover::before {
-        background-image: url('Red_horizontal.png');
+        background-image: url('Red_horizontal_2.png');
     }
 
     .nav-item:nth-of-type(3) > .nav-link:hover::before,
     .nav-item:nth-of-type(4) > .nav-link:hover::before,
     .nav-item:nth-of-type(7) > .nav-link:hover::before,
     .nav-item:nth-of-type(8) > .nav-link:hover::before {
-        background-image: url('Red_vertical_1.png');
+        background-image: url('Red_vertical_2.png');
     }
 
     .nav-item:nth-of-type(1) > .nav-link::before {
@@ -171,7 +171,7 @@
         width: 100%;
         flex-wrap: wrap;
         overflow-y: auto;
-        /*align-items: center;*/
+        align-items: center;
     }
 
     .speaker-box {
@@ -274,13 +274,16 @@
         }
 
         .mobile-logo {
-            height: 30px;
-            width: 60px;
+            width: 200px;
             background-color: indianred;
         }
 
-        .mobile-nav {
+        .mobile-logo img {
             display: block;
+            width: 100%;
+        }
+
+        .mobile-nav {
             /*text-align: center;*/
             list-style-type: none;
             width: 100%;
@@ -297,6 +300,10 @@
         #container {
             position: relative;
             padding: 0 0;
+        }
+
+        .speaker-box {
+            margin-top: 15px;
         }
 
     }
@@ -321,7 +328,9 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </button>
-    <div class="mobile-logo"></div>
+    <div class="mobile-logo">
+        <img src="logo.png" alt="">
+    </div>
 </div>
 
 <ul class="mobile-nav">
