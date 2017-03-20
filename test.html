@@ -3,11 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
 
 <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
     .nav {
         position: fixed;
         z-index: 1000;
@@ -34,7 +39,7 @@
 
     .nav-item:nth-of-type(4n+3),
     .nav-item:nth-of-type(4n) {
-        width: 5rem;
+        width: 4rem;
         height: 50%;
     }
 
@@ -61,7 +66,7 @@
         bottom: 0;
         left: 0;
     }
-    
+
     .nav-link {
         position: absolute;
         top: 0;
@@ -72,7 +77,7 @@
         width: 100%;
         height: 100%;
         box-sizing: border-box;
-        color: #fff;
+        color: #e62b1e;
         text-align: center;
         text-decoration: none;
     }
@@ -95,6 +100,10 @@
     .nav-item:nth-of-type(7) > .nav-link::before,
     .nav-item:nth-of-type(8) > .nav-link::before {
         background-image: url('nav-vertical.svg');
+    }
+
+    .nav-link:hover {
+        color: #fff;
     }
 
     .nav-link:hover::before {
@@ -124,63 +133,336 @@
         transform: scaleX(-1);
     }
 
-    .nav-item:nth-of-type(5) > .nav-link::before {}
+    .nav-item:nth-of-type(5) > .nav-link::before {
+    }
 
     .nav-item:nth-of-type(6) > .nav-link::before {
         transform: scaleX(-1);
     }
 
-    .nav-item:nth-of-type(7) > .nav-link::before {}
+    .nav-item:nth-of-type(7) > .nav-link::before {
+    }
 
     .nav-item:nth-of-type(8) > .nav-link::before {
         transform: scaleY(-1);
     }
 
-    #container{
-        position: fixed;
-        padding: 80px;
-        overflow-y: hidden;
-        height: 60%;
+    .nav-item:nth-of-type(3) > .nav-link span,
+    .nav-item:nth-of-type(4) > .nav-link span {
+        transform: rotate(90deg);
     }
+
+    .nav-item:nth-of-type(7) > .nav-link span,
+    .nav-item:nth-of-type(8) > .nav-link span {
+        transform: rotate(-90deg);
+    }
+
+    #container {
+        position: fixed;
+        padding: 3rem 5rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .speakers {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        /*align-items: center;*/
+    }
+
+    .speaker-box {
+        flex: 1 1 30%;
+        /*overflow: auto;*/
+    }
+
+    .clearfix:after {
+        content: " "; /* Older browser do not support empty content */
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .speaker-time {
+        float: left;
+        width: 3rem;
+    }
+
+    .speaker-details {
+        margin-left: 3rem;
+        display: flex;
+    }
+
+    .speaker-pic {
+        flex: 1 1 1px;
+        padding-right: 1rem;
+    }
+
+    .speaker-pic img {
+        width: 100%;
+        display: block;
+        border-radius: 50%;
+    }
+
+    .speaker-info {
+        flex: 3 3 2px;
+    }
+
+    .speaker-name {
+        display: inline-block;
+        background-color: #e62b1e;
+        color: #fff;
+        font-weight: 400;
+        margin: 0 0 .7rem;
+        padding: .25rem .5rem;
+        font-size: 1rem;
+    }
+
+    .speaker-description {
+        color: #aaaaaa;
+        font-size: .85rem;
+        margin: 0 30px 0 0;
+    }
+
+    .speaker-motto {
+        padding-top: .7rem;
+        margin: 0 0 0 4rem;
+        font-style: italic;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .speakers {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .mobile-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mobile-nav-toggle {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            outline: 0;
+        }
+
+        .mobile-nav-toggle .bar {
+            display: block;
+            width: 32px;
+            height: 6px;
+            background: #000;
+            margin-bottom: 6px;
+        }
+
+        .mobile-logo {
+            height: 30px;
+            width: 60px;
+            background-color: indianred;
+        }
+
+        .mobile-nav {
+            display: block;
+            /*text-align: center;*/
+            list-style-type: none;
+            width: 100%;
+            padding: 0 0 0 10px;
+        }
+
+        .mobile-nav-link {
+            text-decoration: none;
+            color: black;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        #container {
+            position: relative;
+            padding: 0 0;
+        }
+
+    }
+
 </style>
 
 <ul class="nav">
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">TEDX</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>TED ТА TEDX</span></a></li>
+</ul>
+
+<div class="mobile-header">
+    <button class="mobile-nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <div class="mobile-logo"></div>
+</div>
+
+<ul class="mobile-nav">
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>TED ТА TEDX</span></a></li>
 </ul>
 
 <div id="container">
+    <div class="speakers">
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Тетяна Рижа</h3>
+                    <p class="speaker-description">Консультант щодо ефективної
+                        онлайн-освіти, систематизації бізнесу та
+                        маркетингу</p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Дмитро Сємьонов </h3>
+                    <p class="speaker-description"> Випускник КНЕУ, підприємець, блогер, фрілансер – маркетолог </p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Ната Костенко
+                    </h3>
+                    <p class="speaker-description">Випускниця КНУ ім.Т.Шевченка, мандрівниця, фрілансер, дизайнер
+                        презентацій</p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Тарас Парандій
+                    </h3>
+                    <p class="speaker-description">Випускник КНЕУ, маркетолог,
+                        підриємець та CEO власної продуктової
+                        компанії, ідеолог TEDxKyiv
+                    </p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Олександр Сущенко </h3>
+                    <p class="speaker-description">Викладач КНЕУ, фінансист, ініціатор KNEUhub
+                    </p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Митя Недобой
+                    </h3>
+                    <p class="speaker-description"> Дизайнер в рекламному агентстві Bart & Fink, співавтор проекту
+                        Vertigo і викладач Kiev Art College
+                    </p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Dmytro Semonov</h3>
+                    <p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+                        blanditiis consequatur maxime non sequi! Voluptas!</p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Dmytro Semonov</h3>
+                    <p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+                        blanditiis consequatur maxime non sequi! Voluptas!</p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
+        <div class="speaker-box clearfix">
+            <div class="speaker-time">17:00</div>
+            <div class="speaker-details">
+                <div class="speaker-pic"><img src="http://lorempixel.com/600/600/animals/" alt=""></div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Dmytro Semonov</h3>
+                    <p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+                        blanditiis consequatur maxime non sequi! Voluptas!</p>
+                </div>
+            </div>
+            <p class="speaker-motto">My motto is to have a good motto</p>
+        </div>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, cum debitis, earum eum inventore itaque
-    laudantium, odit pariatur quas qui quibusdam vel voluptas voluptatem voluptates voluptatum? Delectus deleniti quis
-    temporibus.</p>
-<p>Alias aspernatur consectetur debitis dolore dolorem, eveniet fugit ipsa ipsam, minima omnis perferendis perspiciatis
-    placeat quidem quos repellendus tenetur ullam. Assumenda corporis explicabo facilis, labore magni officia qui quidem
-    vero.</p>
-<p>Assumenda blanditiis eaque neque, non obcaecati qui repellat saepe? A amet animi, aspernatur beatae dicta error et
-    fugiat magnam maiores nam, nemo nihil quam quia repellendus sed sunt unde voluptas?</p>
-<p>Aut et excepturi, explicabo hic itaque laboriosam laborum magnam magni nostrum officia officiis perferendis placeat
-    provident quasi qui repudiandae similique, tempora ut. Aperiam cumque doloribus et ipsa optio? Ipsam, ipsum!</p>
-<p>Accusamus aliquid cupiditate dolorum et fuga hic minima praesentium sequi velit veniam. At aut dolor dolorum eligendi
-    exercitationem illo incidunt nesciunt placeat quidem quis, reprehenderit repudiandae saepe similique, totam,
-    voluptates!</p>
-<p>A ad adipisci alias corporis cum cupiditate delectus distinctio dolores explicabo harum id illum ipsa ipsum, iure
-    labore, magnam magni nihil nulla omnis praesentium quaerat quia quibusdam rem sequi voluptatibus.</p>
-<p>Corporis doloribus fugiat, illum neque porro quo sequi sit voluptatem! Atque cupiditate distinctio dolorum eius
-    eligendi expedita facere, hic incidunt ipsam laudantium minima minus mollitia neque, non pariatur quibusdam
-    ullam.</p>
-<p>Beatae commodi dolores eligendi eveniet facere fugit illo ipsa ipsam mollitia odio officiis, sint sit soluta vel,
-    velit voluptate, voluptatum. Ad blanditiis corporis deleniti dignissimos fugiat id magni officia placeat.</p>
-<p>Animi expedita impedit necessitatibus nostrum officia quam voluptates. Ab alias beatae commodi cumque distinctio enim
-    est, et in ipsa labore magnam mollitia nam nemo neque officia similique unde voluptas voluptatum!</p>
-<p>Consectetur esse eum mollitia pariatur qui quibusdam ratione, voluptate. A, ad amet deleniti eveniet fugiat fugit
-    impedit iusto maiores nulla obcaecati perferendis placeat quae quasi qui quo repellat sequi temporibus!</p>
+
+    </div>
 </div>
+
+<script>
+    var navButton = document.getElementsByClassName('mobile-nav-toggle')[0];
+    var navigation = document.getElementsByClassName('mobile-nav')[0];
+    navButton.onclick = function () {
+        if(navigation.style.display == 'none') {
+            navigation.style.display = 'block'
+        }
+        else {
+            navigation.style.display = 'none'
+        }
+    };
+    console.log(navigation);
+</script>
 </body>
 </html>
