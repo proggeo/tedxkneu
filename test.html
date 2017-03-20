@@ -91,7 +91,7 @@
         display: block;
         width: 100%;
         height: 100%;
-        background: transparent url('nav.svg') no-repeat;
+        background: transparent url('White_horizontal.png') no-repeat;
         background-size: 100% 100%;
     }
 
@@ -99,7 +99,7 @@
     .nav-item:nth-of-type(4) > .nav-link::before,
     .nav-item:nth-of-type(7) > .nav-link::before,
     .nav-item:nth-of-type(8) > .nav-link::before {
-        background-image: url('nav-vertical.svg');
+        background-image: url('White_vertical_1.png');
     }
 
     .nav-link:hover {
@@ -107,22 +107,21 @@
     }
 
     .nav-link:hover::before {
-        background-image: url('nav-hover.svg');
+        background-image: url('Red_horizontal.png');
     }
 
     .nav-item:nth-of-type(3) > .nav-link:hover::before,
     .nav-item:nth-of-type(4) > .nav-link:hover::before,
     .nav-item:nth-of-type(7) > .nav-link:hover::before,
     .nav-item:nth-of-type(8) > .nav-link:hover::before {
-        background-image: url('nav-vertical-hover.svg');
+        background-image: url('Red_vertical_1.png');
     }
 
     .nav-item:nth-of-type(1) > .nav-link::before {
-        transform: scale(-1);
     }
 
     .nav-item:nth-of-type(2) > .nav-link::before {
-        transform: scaleY(-1);
+        transform: scaleX(-1);
     }
 
     .nav-item:nth-of-type(3) > .nav-link::before {
@@ -134,10 +133,11 @@
     }
 
     .nav-item:nth-of-type(5) > .nav-link::before {
+        transform: scale(-1);
     }
 
     .nav-item:nth-of-type(6) > .nav-link::before {
-        transform: scaleX(-1);
+        transform: scaleY(-1);
     }
 
     .nav-item:nth-of-type(7) > .nav-link::before {
@@ -238,6 +238,10 @@
         display: none;
     }
 
+    .mobile-header {
+        display: none;
+    }
+
     @media (max-width: 767px) {
         .speakers {
             flex-direction: column;
@@ -309,6 +313,7 @@
     <li class="nav-item"><a class="nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
     <li class="nav-item"><a class="nav-link" href="#"><span>TED ТА TEDX</span></a></li>
 </ul>
+
 
 <div class="mobile-header">
     <button class="mobile-nav-toggle">
@@ -455,7 +460,7 @@
     var navButton = document.getElementsByClassName('mobile-nav-toggle')[0];
     var navigation = document.getElementsByClassName('mobile-nav')[0];
     navButton.onclick = function () {
-        if(navigation.style.display == 'none') {
+        if (navigation.style.display == 'none') {
             navigation.style.display = 'block'
         }
         else {
