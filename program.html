@@ -165,6 +165,56 @@
         box-sizing: border-box;
     }
 
+    .wrapper {
+        height: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .program-block {
+        flex: 1 1 1px;
+        margin: auto;
+    }
+
+    .block-header {
+        color: #e62b1e;
+        text-align: center;
+    }
+
+    .block-content {
+        height: 200px;
+    }
+
+    .left-column {
+        float: left;
+        height: 180px;
+        margin-top: 6px;
+    }
+
+    .program-list {
+        list-style-type: none;
+        float: left;
+        padding-left: 5px;
+        margin: auto;
+    }
+
+    .program-list .program-point:nth-of-type(2) {
+        padding-top: 65px;
+    }
+
+    .program-list .program-point:nth-of-type(3) {
+        padding-top: 27px;
+    }
+
+    .program-list .program-point:nth-of-type(4) {
+        padding-top: 23px;
+    }
+
+    .time {
+        color: #e62b1e;
+    }
+
     .clearfix:after {
         content: " "; /* Older browser do not support empty content */
         visibility: hidden;
@@ -238,6 +288,14 @@
             padding: 0 0;
         }
 
+        .wrapper {
+            display: block;
+        }
+
+        .block-content {
+            width: 300px;
+            margin: 0 auto;
+        }
     }
 
 </style>
@@ -252,7 +310,6 @@
     <li class="nav-item"><a class="nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
     <li class="nav-item"><a class="nav-link" href="#"><span>TED ТА TEDX</span></a></li>
 </ul>
-
 
 <div class="mobile-header">
     <button class="mobile-nav-toggle">
@@ -277,6 +334,44 @@
 </ul>
 
 <div id="container">
+    <div class="wrapper">
+        <div class="program-block">
+            <h3 class="block-header">Block 1</h3>
+            <div class="block-content">
+                <img class="left-column" src="images/Line_with_circles.png"/>
+                <ul class="program-list">
+                    <li class="program-point"><span class="time">16:00</span> Реєстрація</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                </ul>
+            </div>
+        </div>
+        <div class="program-block">
+            <h3 class="block-header">Block 1</h3>
+            <div class="block-content">
+                <img class="left-column" src="images/Line_with_circles.png"/>
+                <ul class="program-list">
+                    <li class="program-point"><span class="time">16:00</span> Реєстрація</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                </ul>
+            </div>
+        </div>
+        <div class="program-block">
+            <h3 class="block-header">Block 1</h3>
+            <div class="block-content">
+                <img class="left-column" src="images/Line_with_circles.png"/>
+                <ul class="program-list">
+                    <li class="program-point"><span class="time">16:00</span> Реєстрація</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                    <li class="program-point"><span class="time">16:00</span> Спікер</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
