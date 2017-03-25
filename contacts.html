@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/20c86e445c.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .nav {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .nav-item {
+        position: absolute;
+        pointer-events: all;
+        list-style: none;
+    }
+
+    .nav-item:nth-of-type(4n+1),
+    .nav-item:nth-of-type(4n+2) {
+        width: 50%;
+        height: 3rem;
+    }
+
+    .nav-item:nth-of-type(4n+3),
+    .nav-item:nth-of-type(4n) {
+        width: 4rem;
+        height: 50%;
+    }
+
+    .nav-item:nth-of-type(1),
+    .nav-item:nth-of-type(8) {
+        top: 0;
+        left: 0;
+    }
+
+    .nav-item:nth-of-type(2),
+    .nav-item:nth-of-type(3) {
+        top: 0;
+        right: 0;
+    }
+
+    .nav-item:nth-of-type(4),
+    .nav-item:nth-of-type(5) {
+        right: 0;
+        bottom: 0;
+    }
+
+    .nav-item:nth-of-type(6),
+    .nav-item:nth-of-type(7) {
+        bottom: 0;
+        left: 0;
+    }
+
+    .nav-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        color: #e62b1e;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: transparent url('images/White_horizontal_3.png') no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before,
+    .nav-item:nth-of-type(4) > .nav-link::before,
+    .nav-item:nth-of-type(7) > .nav-link::before,
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        background-image: url('images/White_vertical_2.png');
+    }
+
+    .nav-link:hover {
+        color: #fff;
+    }
+
+    .nav-link:hover::before {
+        background-image: url('images/Red_horizontal_2.png');
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link:hover::before,
+    .nav-item:nth-of-type(4) > .nav-link:hover::before,
+    .nav-item:nth-of-type(7) > .nav-link:hover::before,
+    .nav-item:nth-of-type(8) > .nav-link:hover::before {
+        background-image: url('images/Red_vertical_2.png');
+    }
+
+    .nav-item:nth-of-type(1) > .nav-link::before {
+    }
+
+    .nav-item:nth-of-type(2) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(4) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(5) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(6) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    .nav-item:nth-of-type(7) > .nav-link::before {
+    }
+
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link span,
+    .nav-item:nth-of-type(4) > .nav-link span {
+        transform: rotate(90deg);
+    }
+
+    .nav-item:nth-of-type(7) > .nav-link span,
+    .nav-item:nth-of-type(8) > .nav-link span {
+        transform: rotate(-90deg);
+    }
+
+    #container {
+        position: fixed;
+        padding: 3rem 5rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #contactsBlock {
+        display: flex;
+        height: 50%;
+        width: 100%;
+    }
+
+    #contacts {
+        flex: 1 1 50%;
+        box-sizing: border-box;
+        padding: 30px 40px 0 10%;
+        font-weight: bold;
+    }
+
+    .fa {
+        margin: 10px;
+        font-size: 20px;
+        color: #e62b1e;
+    }
+
+    #map-container {
+        flex: 1 1 50%;
+        height: 100%;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+
+    #teamBlock {
+        box-sizing: border-box;
+    }
+
+    #teamImg {
+        display: block;
+        margin: 10px 30px auto;
+        max-width: 80%;
+    }
+
+    #teamMembers {
+        display: none;
+    }
+
+    .licenseStatement {
+        margin-left: 30px;
+    }
+
+    .clearfix:after {
+        content: " "; /* Older browser do not support empty content */
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .mobile-header {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+
+        .nav {
+            display: none;
+        }
+
+        .mobile-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mobile-nav-toggle {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            outline: 0;
+        }
+
+        .mobile-nav-toggle .bar {
+            display: block;
+            width: 32px;
+            height: 6px;
+            background: #000;
+            margin-bottom: 6px;
+        }
+
+        .mobile-logo {
+            width: 200px;
+        }
+
+        .mobile-logo img {
+            display: block;
+            width: 100%;
+        }
+
+        .mobile-nav {
+            /*text-align: center;*/
+            list-style-type: none;
+            width: 100%;
+            padding: 0 0 0 10px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            text-decoration: none;
+            color: black;
+            font-size: 2rem;
+            font-weight: 400;
+            padding: 5px;
+        }
+
+        #container {
+            position: relative;
+            padding: 0 0;
+        }
+
+        #contactsBlock {
+            display: block;
+        }
+
+        #contacts {
+            text-align: center;
+        }
+
+        #map-container {
+            height:300px;
+            width: 80%;
+            margin:auto;
+        }
+
+        #teamMembers {
+            display: block;
+        }
+
+        .teamMember {
+            margin-left: 30px;
+        }
+
+    }
+
+</style>
+
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>TED ТА TEDX</span></a></li>
+</ul>
+
+
+<div class="mobile-header">
+    <button class="mobile-nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <div class="mobile-logo">
+        <img src="images/logo.png" alt="">
+    </div>
+</div>
+
+<ul class="mobile-nav">
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>TED ТА TEDX</span></a></li>
+</ul>
+
+<div id="container">
+    <div id="contactsBlock">
+        <div id="contacts">
+            <p>tedxkneu@gmail.com</p>
+            <p>+38 (063) 432 33 99</p>
+            <p>Любов</p>
+            <p>
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-vk"></i>
+            </p>
+            <p>
+                <i class="fa fa-instagram"></i>
+
+                <i class="fa fa-medium"></i>
+            </p>
+        </div>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="teamBlock">
+        <div id="teamPicture">
+            <img src="http://lorempixel.com/800/200/" alt="" id="teamImg">
+        </div>
+        <div id="teamMembers">
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+            <p class="teamMember">Vasia Pupkin</p>
+        </div>
+        <p class="licenseStatement">Фраза про ліцензію</p>
+    </div>
+</div>
+
+<script>
+    var navButton = document.getElementsByClassName('mobile-nav-toggle')[0];
+    var navigation = document.getElementsByClassName('mobile-nav')[0];
+    navButton.onclick = function () {
+        if (navigation.style.display == 'none') {
+            navigation.style.display = 'block'
+        }
+        else {
+            navigation.style.display = 'none'
+        }
+    };
+</script>
+
+<script>
+    function initMap() {
+        var ourLocation = {lat: 50.460942, lng: 30.432564};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: ourLocation
+        });
+        var marker = new google.maps.Marker({
+            position: ourLocation,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMdmRh7R6Jk2L-BJEPrA2RDzoCQTCD_Aw&callback=initMap">
+</script>
+
+
+</body>
+</html>

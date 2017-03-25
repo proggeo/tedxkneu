@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .nav {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .nav-item {
+        position: absolute;
+        pointer-events: all;
+        list-style: none;
+    }
+
+    .nav-item:nth-of-type(4n+1),
+    .nav-item:nth-of-type(4n+2) {
+        width: 50%;
+        height: 3rem;
+    }
+
+    .nav-item:nth-of-type(4n+3),
+    .nav-item:nth-of-type(4n) {
+        width: 4rem;
+        height: 50%;
+    }
+
+    .nav-item:nth-of-type(1),
+    .nav-item:nth-of-type(8) {
+        top: 0;
+        left: 0;
+    }
+
+    .nav-item:nth-of-type(2),
+    .nav-item:nth-of-type(3) {
+        top: 0;
+        right: 0;
+    }
+
+    .nav-item:nth-of-type(4),
+    .nav-item:nth-of-type(5) {
+        right: 0;
+        bottom: 0;
+    }
+
+    .nav-item:nth-of-type(6),
+    .nav-item:nth-of-type(7) {
+        bottom: 0;
+        left: 0;
+    }
+
+    .nav-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        color: #e62b1e;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: transparent url('images/White_horizontal_3.png') no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before,
+    .nav-item:nth-of-type(4) > .nav-link::before,
+    .nav-item:nth-of-type(7) > .nav-link::before,
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        background-image: url('images/White_vertical_2.png');
+    }
+
+    .nav-link:hover {
+        color: #fff;
+    }
+
+    .nav-link:hover::before {
+        background-image: url('images/Red_horizontal_2.png');
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link:hover::before,
+    .nav-item:nth-of-type(4) > .nav-link:hover::before,
+    .nav-item:nth-of-type(7) > .nav-link:hover::before,
+    .nav-item:nth-of-type(8) > .nav-link:hover::before {
+        background-image: url('images/Red_vertical_2.png');
+    }
+
+    .nav-item:nth-of-type(1) > .nav-link::before {
+    }
+
+    .nav-item:nth-of-type(2) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(4) > .nav-link::before {
+        transform: scaleX(-1);
+    }
+
+    .nav-item:nth-of-type(5) > .nav-link::before {
+        transform: scale(-1);
+    }
+
+    .nav-item:nth-of-type(6) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    .nav-item:nth-of-type(7) > .nav-link::before {
+    }
+
+    .nav-item:nth-of-type(8) > .nav-link::before {
+        transform: scaleY(-1);
+    }
+
+    .nav-item:nth-of-type(3) > .nav-link span,
+    .nav-item:nth-of-type(4) > .nav-link span {
+        transform: rotate(90deg);
+    }
+
+    .nav-item:nth-of-type(7) > .nav-link span,
+    .nav-item:nth-of-type(8) > .nav-link span {
+        transform: rotate(-90deg);
+    }
+
+    #container {
+        position: fixed;
+        padding: 3rem 5rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #header {
+        text-align: center;
+    }
+
+    #partnersBlock {
+        display: flex;
+        flex-wrap: wrap;
+        height: 70%;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .partner {
+        margin: auto;
+        flex: 0 1 33%;
+        text-align: center;
+        height: 25%;
+    }
+
+    .status {
+        visibility: hidden;
+    }
+
+    .partnerLogo {
+        filter: grayscale(100%);
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .partner:hover .partnerLogo {
+        transition-duration: 0.5s;
+        filter: grayscale(0%);
+    }
+
+    .partner:hover .status {
+        visibility: visible;
+    }
+
+    .clearfix:after {
+        content: " "; /* Older browser do not support empty content */
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .mobile-header {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+
+        .nav {
+            display: none;
+        }
+
+        .mobile-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mobile-nav-toggle {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            outline: 0;
+        }
+
+        .mobile-nav-toggle .bar {
+            display: block;
+            width: 32px;
+            height: 6px;
+            background: #000;
+            margin-bottom: 6px;
+        }
+
+        .mobile-logo {
+            width: 200px;
+        }
+
+        .mobile-logo img {
+            display: block;
+            width: 100%;
+        }
+
+        .mobile-nav {
+            /*text-align: center;*/
+            list-style-type: none;
+            width: 100%;
+            padding: 0 0 0 10px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            text-decoration: none;
+            color: black;
+            font-size: 2rem;
+            font-weight: 400;
+            padding: 5px;
+        }
+
+        #container {
+            position: relative;
+            padding: 0 0;
+        }
+
+        .partner {
+            flex: 0 1 50%;
+        }
+
+        .status {
+            visibility: visible;
+        }
+
+        .partner .partnerLogo {
+            filter: grayscale(0);
+        }
+
+    }
+
+</style>
+
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="#"><span>TED ТА TEDX</span></a></li>
+</ul>
+
+
+<div class="mobile-header">
+    <button class="mobile-nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <div class="mobile-logo">
+        <img src="images/logo.png" alt="">
+    </div>
+</div>
+
+<ul class="mobile-nav">
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ГОЛОВНА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>СПІКЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПРОГРАМА</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>КОНТАКТИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ПАРТНЕРИ</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>ЯК ЦЕ БУЛО</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="#"><span>TED ТА TEDX</span></a></li>
+</ul>
+
+<div id="container">
+    <div id="header">
+        <h2>Ми відкриті до партнерства з Вами. Пишіть нам на tedxkneu@gmail.com</h2>
+    </div>
+    <div id="partnersBlock">
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/400/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/200/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+        <div class="partner">
+            <p class="status">Генеральний партнер</p>
+            <img src="http://lorempixel.com/300/200/" alt="" class="partnerLogo">
+        </div>
+    </div>
+</div>
+
+<script>
+    var navButton = document.getElementsByClassName('mobile-nav-toggle')[0];
+    var navigation = document.getElementsByClassName('mobile-nav')[0];
+    navButton.onclick = function () {
+        if (navigation.style.display == 'none') {
+            navigation.style.display = 'block'
+        }
+        else {
+            navigation.style.display = 'none'
+        }
+    };
+</script>
+</body>
+</html>
