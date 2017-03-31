@@ -181,6 +181,7 @@
 
     #descriptionBlock {
         flex: 1 1 50%;
+        font-size:1rem;
     }
 
     #carouselBlock {
@@ -190,6 +191,8 @@
         padding: 20px;
         height: 100%;
         width: 450px;
+        max-width: 50%;
+        visibility: hidden;
     }
 
     .carouselPic {
@@ -219,6 +222,7 @@
 
     #headsBlock {
         height: 20%;
+        margin-top:-15px;
     }
 
     .head {
@@ -341,6 +345,8 @@
 
         #carouselBlock {
             width: 100%;
+            max-width: none;
+            margin: auto;
         }
 
         #numbersBlock {
@@ -495,6 +501,7 @@
             autoplay: true,
             dots: true,
         });
+        $('#carouselBlock').css('visibility','visible')
     });
 </script>
 
