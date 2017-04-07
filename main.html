@@ -12,8 +12,8 @@
 
 <style>
     html, body {
-        height:100%;
-        width:100%;
+        height: 100%;
+        width: 100%;
         margin: 0;
     }
 
@@ -177,8 +177,10 @@
 
     #bigLogoBlock {
         margin-top: 30px;
+        margin-bottom: 20px;
         height: 60%;
         box-sizing: border-box;
+        padding-right: 50px;
     }
 
     #bigLogo {
@@ -186,8 +188,14 @@
         margin: auto;
         height: 100%;
         box-sizing: border-box;
+    }
 
-        /*position: absolute;*/
+    @media (orientation: portrait) {
+        #bigLogo {
+            height: auto;
+            width: 100%;
+        }
+
     }
 
     #infoBlock p {
@@ -229,8 +237,14 @@
 
     @media (max-width: 767px) {
 
-        body {
+        html {
+            background: black;
+        }
 
+        body {
+            height: 100%;
+            background: url("images/Mob.png") no-repeat center;
+            background-size: cover;
         }
 
         .nav {
@@ -244,6 +258,7 @@
         }
 
         .mobile-nav-toggle {
+            margin: 15px;
             background: transparent;
             border: 0;
             box-shadow: none;
@@ -254,7 +269,7 @@
             display: block;
             width: 32px;
             height: 6px;
-            background: #000;
+            background: #ffffff;
             margin-bottom: 6px;
         }
 
@@ -263,7 +278,7 @@
         }
 
         .mobile-logo img {
-            display: block;
+            display: none;
             width: 100%;
         }
 
@@ -271,13 +286,13 @@
             /*text-align: center;*/
             list-style-type: none;
             width: 100%;
-            padding: 0 0 0 10px;
+            padding: 0 0 0 15px;
         }
 
         .mobile-nav-link {
             display: block;
             text-decoration: none;
-            color: black;
+            color: white;
             font-size: 2rem;
             font-weight: 400;
             padding: 5px;
@@ -286,12 +301,20 @@
         #container {
             position: relative;
             padding: 0 0;
+            height: auto;
+        }
+
+        #bigLogoBlock {
+            padding: 0;
+            height: auto;
         }
 
         #bigLogo {
             float: none;
             margin: auto;
-            width: 70%;
+            max-width: 70%;
+            max-height: 70%;
+            height:auto;
         }
 
         #infoBlock p {
@@ -341,7 +364,7 @@
 
 <div id="container">
     <div id="bigLogoBlock" class="clearfix">
-        <img src="images/bigLogo.png" alt="" id="bigLogo">
+        <img src="images/logo2.png" alt="" id="bigLogo">
     </div>
 
     <div id="infoBlock">
@@ -358,12 +381,15 @@
 <script>
     var navButton = document.getElementsByClassName('mobile-nav-toggle')[0];
     var navigation = document.getElementsByClassName('mobile-nav')[0];
+    var container = document.getElementById('container')
     navButton.onclick = function () {
         if (navigation.style.display == 'none') {
             navigation.style.display = 'block'
+            container.style.display = 'none'
         }
         else {
             navigation.style.display = 'none'
+            container.style.display = 'block'
         }
     };
 </script>
