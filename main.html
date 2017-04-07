@@ -11,12 +11,17 @@
 <body>
 
 <style>
+    html, body {
+        height:100%;
+        width:100%;
+        margin: 0;
+    }
+
     body {
         font-family: 'Roboto', sans-serif;
         background: url("images/grey_background.png");
-        background-size: 100%;
+        background-size: cover;
     }
-
 
     .nav {
         position: fixed;
@@ -178,8 +183,7 @@
 
     #bigLogo {
         display: block;
-        margin-right: 10%;
-        float: right;
+        margin: auto;
         height: 100%;
         box-sizing: border-box;
 
@@ -187,14 +191,16 @@
     }
 
     #infoBlock p {
-        margin: 5px 5px 5px 10%;
-        font-size: 20px ;
+        margin: 5px;
+        font-size: 20px;
+        text-align: center;
+        color: #ffffff;
     }
 
     .fa {
         margin: 10px;
         font-size: 20px;
-        color: #e62b1e;
+        color: #ffffff;
     }
 
     .clearfix:after {
@@ -213,7 +219,19 @@
         display: none;
     }
 
+    @media (min-width: 768px) {
+        body {
+            height: 100%;
+            background: url("images/Main.png") no-repeat center;
+            background-size: cover;
+        }
+    }
+
     @media (max-width: 767px) {
+
+        body {
+
+        }
 
         .nav {
             display: none;
@@ -287,7 +305,8 @@
 
 <ul class="nav">
     <li class="nav-item"><a class="nav-link" href="main.html"><span>ГОЛОВНА</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="http://tickerry.com/event/tedxkneu/" target="_blank"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="http://tickerry.com/event/tedxkneu/" target="_blank"><span>КУПИТИ КВИТОК</span></a>
+    </li>
     <li class="nav-item"><a class="nav-link" href="speakers.html"><span>СПІКЕРИ</span></a></li>
     <li class="nav-item"><a class="nav-link" href="program.html"><span>ПРОГРАМА</span></a></li>
     <li class="nav-item"><a class="nav-link" href="contacts.html"><span>КОНТАКТИ</span></a></li>
@@ -310,7 +329,8 @@
 
 <ul class="mobile-nav">
     <li class="mobile-nav-item"><a class="mobile-nav-link" href="main.html"><span>ГОЛОВНА</span></a></li>
-    <li class="mobile-nav-item"><a class="mobile-nav-link" href="http://tickerry.com/event/tedxkneu/" target="_blank"><span>КУПИТИ КВИТОК</span></a></li>
+    <li class="mobile-nav-item"><a class="mobile-nav-link" href="http://tickerry.com/event/tedxkneu/"
+                                   target="_blank"><span>КУПИТИ КВИТОК</span></a></li>
     <li class="mobile-nav-item"><a class="mobile-nav-link" href="speakers.html"><span>СПІКЕРИ</span></a></li>
     <li class="mobile-nav-item"><a class="mobile-nav-link" href="program.html"><span>ПРОГРАМА</span></a></li>
     <li class="mobile-nav-item"><a class="mobile-nav-link" href="contacts.html"><span>КОНТАКТИ</span></a></li>
@@ -330,10 +350,7 @@
         <p>
             <i class="fa fa-facebook"></i>
             <i class="fa fa-vk"></i>
-        </p>
-        <p>
             <i class="fa fa-instagram"></i>
-            <i class="fa fa-medium"></i>
         </p>
     </div>
 </div>
